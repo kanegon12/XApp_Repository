@@ -1,0 +1,6 @@
+framework module Pods_XApp_Xcode26 {
+  umbrella header "Pods-XApp_Xcode26-umbrella.h"
+
+  export *
+  module * { export * }
+}
