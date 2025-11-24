@@ -1,1 +1,27 @@
+# ========= Xcode =========
+DerivedData/
+build/
+
+#.xcodeproj / .xcworkspace 内のユーザごとの設定
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.xccheckout
+
+# SwiftPM
+.build/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# macOS
 .DS_Store
