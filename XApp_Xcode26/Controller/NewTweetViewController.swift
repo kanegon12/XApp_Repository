@@ -4,16 +4,19 @@
 //
 //  Created by Newbie on 2025/11/24.
 //
-
+//
 import UIKit
-
+//
 class NewTweetViewController: UIViewController {
+    @IBAction func tweetBarButton(_ sender: Any) {
+    }
+    @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+       
+    }
     @IBOutlet weak var tweetTextView: UITextView!
-    @IBAction func didTapCancel(_ sender: Any) {
-    }
-    @IBAction func didTapPost(_ sender: Any) {
-    }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,4 +24,5 @@ class NewTweetViewController: UIViewController {
     }
     
 }
+
 

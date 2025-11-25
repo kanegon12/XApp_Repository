@@ -35,9 +35,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="拡張可能　通知タブなど実装可能" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmh-rZ-6EH">
-                                <rect key="frame" x="77" y="416" width="239" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拡張可能　通知タブなど実装可能" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmh-rZ-6EH">
+                                <rect key="frame" x="77" y="416" width="239" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,6 +44,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OX9-cJ-liu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pmh-rZ-6EH" firstAttribute="centerX" secondItem="jd0-v0-3B7" secondAttribute="centerX" id="SPX-bz-5pR"/>
+                            <constraint firstItem="Pmh-rZ-6EH" firstAttribute="centerY" secondItem="jd0-v0-3B7" secondAttribute="centerY" id="UEd-XD-pXQ"/>
+                            <constraint firstItem="Pmh-rZ-6EH" firstAttribute="top" secondItem="OX9-cJ-liu" secondAttribute="top" constant="298" id="zoc-WL-eho"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="zUG-zu-hE2"/>
                 </viewController>
@@ -85,25 +89,45 @@
                                 <rect key="frame" x="0.0" y="134.33333333333331" width="393" height="600.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQE-QF-CGu">
+                                <rect key="frame" x="333" y="675" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="a1v-3P-GkN"/>
+                                    <constraint firstAttribute="height" constant="50" id="q0l-dB-hhk"/>
+                                </constraints>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="＋">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="pux-DM-5wR" kind="modal" id="Ptc-Wh-h5I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pwg-qZ-QhN"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Pwg-qZ-QhN" firstAttribute="bottom" secondItem="79a-BQ-j0X" secondAttribute="bottom" id="6wQ-6t-AvC"/>
                             <constraint firstItem="gDX-kx-PJM" firstAttribute="centerX" secondItem="M6F-Tu-Rcp" secondAttribute="centerX" id="Dv2-uZ-0LR"/>
+                            <constraint firstItem="Pwg-qZ-QhN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wQE-QF-CGu" secondAttribute="trailing" id="PxS-7S-QyK"/>
                             <constraint firstItem="Pwg-qZ-QhN" firstAttribute="trailing" secondItem="79a-BQ-j0X" secondAttribute="trailing" id="R0P-hV-Qv1"/>
                             <constraint firstItem="RLl-rn-Pmq" firstAttribute="top" secondItem="M6F-Tu-Rcp" secondAttribute="top" constant="100" id="S2K-Gn-Shb"/>
                             <constraint firstItem="RLl-rn-Pmq" firstAttribute="centerX" secondItem="M6F-Tu-Rcp" secondAttribute="centerX" id="Xxr-EU-DmD"/>
                             <constraint firstItem="RLl-rn-Pmq" firstAttribute="leading" secondItem="M6F-Tu-Rcp" secondAttribute="leading" id="cp4-Ip-9oi"/>
+                            <constraint firstItem="Pwg-qZ-QhN" firstAttribute="bottom" secondItem="wQE-QF-CGu" secondAttribute="bottom" constant="10" id="eUr-Ke-PlF"/>
                             <constraint firstItem="RLl-rn-Pmq" firstAttribute="top" secondItem="gDX-kx-PJM" secondAttribute="bottom" constant="10" id="fT5-Ob-U2t"/>
                             <constraint firstItem="79a-BQ-j0X" firstAttribute="leading" secondItem="Pwg-qZ-QhN" secondAttribute="leading" id="hwk-XY-cXe"/>
                             <constraint firstItem="79a-BQ-j0X" firstAttribute="top" secondItem="RLl-rn-Pmq" secondAttribute="bottom" id="kSX-iV-8wm"/>
                             <constraint firstAttribute="trailing" secondItem="RLl-rn-Pmq" secondAttribute="trailing" id="nir-sp-5Pq"/>
+                            <constraint firstItem="wQE-QF-CGu" firstAttribute="leading" secondItem="Pwg-qZ-QhN" secondAttribute="leading" constant="333" id="sVa-SI-CNv"/>
                         </constraints>
-                        <connections>
-                            <outlet property="bottomStackView" destination="RLl-rn-Pmq" id="UX9-Ox-FiK"/>
-                            <outlet property="tableView" destination="79a-BQ-j0X" id="dzf-yJ-9kb"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="HomeButon" id="1Em-WW-8ua"/>
                     <navigationItem key="navigationItem" id="YpS-v5-78H">
@@ -114,63 +138,64 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                     </navigationItem>
-                    <connections>
-                        <outlet property="floatingView" destination="M6F-Tu-Rcp" id="nQC-eY-YIJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HM-h5-kDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74" y="-930"/>
+            <point key="canvasLocation" x="-74.045801526717554" y="-930.28169014084517"/>
         </scene>
-        <!--New Tweet View Controller-->
+        <!--Title-->
         <scene sceneID="V15-dU-kk3">
             <objects>
-                <viewController storyboardIdentifier="NewTweetViewController" id="pux-DM-5wR" customClass="NewTweetViewController" customModule="XApp_Xcode26" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewTweetViewController" modalPresentationStyle="fullScreen" id="pux-DM-5wR" customClass="NewTweetViewController" customModule="XApp_Xcode26" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DRI-ON-8u9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2R-Mv-Bxk">
-                                <rect key="frame" x="10" y="75" width="104" height="34.333333333333343"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="キャンセル"/>
-                                <connections>
-                                    <action selector="didTapCancel:" destination="pux-DM-5wR" eventType="touchUpInside" id="CGP-7u-6kb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-cE-UU7">
-                                <rect key="frame" x="327" y="75" width="56" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="投稿"/>
-                                <connections>
-                                    <action selector="didTapPost:" destination="pux-DM-5wR" eventType="touchUpInside" id="bhL-oE-vf7"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ydk-Kh-UL1">
-                                <rect key="frame" x="0.0" y="109.33333333333331" width="393" height="674.66666666666674"/>
+                                <rect key="frame" x="0.0" y="109.33333333333331" width="393" height="708.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　</mutableString>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="708.66666666666674" id="e6q-Iy-ZjX"/>
+                                </constraints>
+                                <string key="text">新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQT-1u-bcE">
+                                <rect key="frame" x="0.0" y="49" width="393" height="54"/>
+                                <items>
+                                    <navigationItem id="UF5-Vw-3dr">
+                                        <barButtonItem key="leftBarButtonItem" title="キャンセル" style="plain" id="phF-JL-wCe">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="cancelBarButton:" destination="pux-DM-5wR" id="V6w-Bv-i1h"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="ポスト" style="plain" id="sIZ-ha-40E">
+                                            <color key="tintColor" systemColor="systemBlueColor"/>
+                                            <connections>
+                                                <action selector="tweetBarButton:" destination="pux-DM-5wR" id="3Yp-aq-Qr4"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A45-ti-hfK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="L2R-Mv-Bxk" firstAttribute="leading" secondItem="DRI-ON-8u9" secondAttribute="leading" constant="10" id="0kV-FI-ruK"/>
-                            <constraint firstItem="5mv-cE-UU7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L2R-Mv-Bxk" secondAttribute="trailing" constant="8" symbolic="YES" id="E9t-pG-uOo"/>
+                            <constraint firstItem="Ydk-Kh-UL1" firstAttribute="trailing" secondItem="NQT-1u-bcE" secondAttribute="trailing" id="3nd-Da-EyV"/>
                             <constraint firstItem="Ydk-Kh-UL1" firstAttribute="leading" secondItem="A45-ti-hfK" secondAttribute="leading" id="HFx-LN-2hb"/>
                             <constraint firstItem="A45-ti-hfK" firstAttribute="trailing" secondItem="Ydk-Kh-UL1" secondAttribute="trailing" id="MBq-ce-s8b"/>
-                            <constraint firstItem="5mv-cE-UU7" firstAttribute="top" secondItem="DRI-ON-8u9" secondAttribute="top" constant="75" id="aSh-In-tYA"/>
-                            <constraint firstAttribute="trailing" secondItem="5mv-cE-UU7" secondAttribute="trailing" constant="10" id="fDL-10-MPu"/>
-                            <constraint firstItem="L2R-Mv-Bxk" firstAttribute="top" secondItem="DRI-ON-8u9" secondAttribute="top" constant="75" id="iiK-Wi-73P"/>
-                            <constraint firstItem="Ydk-Kh-UL1" firstAttribute="top" secondItem="L2R-Mv-Bxk" secondAttribute="bottom" id="plA-u9-gKV"/>
+                            <constraint firstItem="Ydk-Kh-UL1" firstAttribute="leading" secondItem="NQT-1u-bcE" secondAttribute="leading" id="ctS-ak-XUU"/>
                             <constraint firstItem="A45-ti-hfK" firstAttribute="bottom" secondItem="Ydk-Kh-UL1" secondAttribute="bottom" id="smO-dw-zKh"/>
+                            <constraint firstItem="Ydk-Kh-UL1" firstAttribute="top" secondItem="NQT-1u-bcE" secondAttribute="bottom" constant="6.3333333333333144" id="uMz-Wz-YM4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="lJv-YP-O2t"/>
                     <connections>
-                        <outlet property="tweetTextView" destination="Ydk-Kh-UL1" id="tJr-7J-lix"/>
+                        <outlet property="tweetTextView" destination="Ydk-Kh-UL1" id="3qW-f2-BUz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wiE-G8-ToV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -186,6 +211,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
