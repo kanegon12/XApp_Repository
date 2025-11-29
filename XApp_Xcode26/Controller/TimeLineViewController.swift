@@ -9,7 +9,7 @@ import UIKit
 
 class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var timeLine: UITableView!
-    var tweet:[TweetDataModel] = []
+    private var tweet:[TweetDataModel] = []
     
     
     override func viewDidLoad() {
@@ -33,6 +33,5 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.configure(tweetDataModel: tweet[indexPath.row])
         return cell
     }
-    
-}
+ }
 
