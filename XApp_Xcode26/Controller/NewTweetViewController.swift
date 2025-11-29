@@ -15,6 +15,8 @@ class NewTweetViewController: UIViewController {
        
     }
     @IBOutlet weak var tweetTextView: UITextView!
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
     
 
     override func viewDidLoad() {
