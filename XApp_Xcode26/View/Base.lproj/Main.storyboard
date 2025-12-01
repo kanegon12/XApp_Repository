@@ -111,6 +111,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="newTweet:" destination="8i6-iT-fSf" eventType="touchUpInside" id="CDd-62-eKe"/>
                                     <segue destination="pux-DM-5wR" kind="modal" id="Ptc-Wh-h5I"/>
                                 </connections>
                             </button>
@@ -202,7 +203,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ydk-Kh-UL1">
                                 <rect key="frame" x="0.0" y="177" width="393" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　新規ツイート　</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -215,10 +215,10 @@
                             <constraint firstItem="A45-ti-hfK" firstAttribute="trailing" secondItem="Ydk-Kh-UL1" secondAttribute="trailing" id="8uH-ZK-IDX"/>
                             <constraint firstItem="8gZ-CM-KvL" firstAttribute="top" secondItem="NQT-1u-bcE" secondAttribute="bottom" constant="10" id="Hh8-98-gXR"/>
                             <constraint firstItem="A45-ti-hfK" firstAttribute="bottom" secondItem="Ydk-Kh-UL1" secondAttribute="bottom" id="HxY-jB-H2F"/>
+                            <constraint firstItem="A45-ti-hfK" firstAttribute="trailing" secondItem="RpO-AD-VJT" secondAttribute="trailing" constant="10" id="Nnj-qp-gdv"/>
                             <constraint firstItem="NQT-1u-bcE" firstAttribute="top" secondItem="A45-ti-hfK" secondAttribute="top" constant="9" id="Omv-nA-U04"/>
                             <constraint firstItem="RpO-AD-VJT" firstAttribute="top" secondItem="8gZ-CM-KvL" secondAttribute="top" id="SVH-4q-Nxj"/>
                             <constraint firstAttribute="trailing" secondItem="NQT-1u-bcE" secondAttribute="trailing" id="TLz-36-5AP"/>
-                            <constraint firstItem="8gZ-CM-KvL" firstAttribute="leading" secondItem="A45-ti-hfK" secondAttribute="leading" constant="73" id="jqu-aL-C3w"/>
                             <constraint firstItem="NQT-1u-bcE" firstAttribute="leading" secondItem="DRI-ON-8u9" secondAttribute="leading" id="nqq-en-EqO"/>
                             <constraint firstItem="RpO-AD-VJT" firstAttribute="top" secondItem="NQT-1u-bcE" secondAttribute="bottom" constant="10" id="o4d-PF-2xv"/>
                             <constraint firstItem="RpO-AD-VJT" firstAttribute="leading" secondItem="8gZ-CM-KvL" secondAttribute="trailing" constant="10" id="rRJ-lC-Ewh"/>
@@ -247,10 +247,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.53333333333333333" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.53333333333333333" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
