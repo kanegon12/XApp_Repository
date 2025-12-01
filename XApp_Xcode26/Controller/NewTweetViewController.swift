@@ -6,19 +6,16 @@
 //
 //
 import UIKit
-//
+
 class NewTweetViewController: UIViewController {
    
     // ポストボタン処理 whitespacesAndNewlinesで改行とスペース除去
     @IBAction func tweetBarButton(_ sender: Any) {
-        let userName = userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let id = idTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let tweetText = tweetTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
+       let trimmingData = trimming()
         let tweet = TweetDataModel(
-            userName: userName,
-            id: id,
-            tweetText: tweetText)
+            userName: trimmingData.userName,
+            id: trimmingData.id,
+            tweetText: trimmingData.text)
         // 編集ならeditを新規ならnilを返す
         let indexPath: Int? = {
             if case let .editTweet(edit) = mode {
@@ -39,7 +36,7 @@ class NewTweetViewController: UIViewController {
     
     var editTweet: TweetDataModel?
     weak var delegate: NewTweetDelegate?
-   
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +49,15 @@ class NewTweetViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
     }
+    
+    // スペースと改行除去
+    func trimming() -> (userName: String, id: String, text: String) {
+        let userName = userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let id = idTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let text = tweetTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        return (userName, id , text)
+    }
+    
     // 新規ツイートか編集かを判断
     enum Mode { case create, editTweet(index: Int)}
     var mode: Mode = .create

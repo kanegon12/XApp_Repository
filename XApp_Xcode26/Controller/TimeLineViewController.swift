@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EditTweetDelegate ,NewTweetDelegate{
+class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @IBOutlet weak var timeLine: UITableView!
@@ -47,17 +47,10 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-    func editTweetDelegate(cell: TimeLineTableViewCell, tweetDataModel: TweetDataModel) {
-        guard let indexPath = timeLine.indexPath(for: cell) else { return }
-        // 編集画面を取得
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let editTweetViewController = storyboard.instantiateViewController(withIdentifier: "NewTweetViewController") as? NewTweetViewController else { return }
-        editTweetViewController.editTweet = tweetDataModel
-        editTweetViewController.mode = .editTweet(index: indexPath.row)
-        editTweetViewController.delegate = self
-        // 画面を渡す
-        present(editTweetViewController, animated: true)
-    }
+
+}
+
+extension TimeLineViewController: NewTweetDelegate {
     func newTweetDelegate(viewController: NewTweetViewController, editedTweet: TweetDataModel, editedIndexPath: Int?) {
         if let indexPath = editedIndexPath {
         
@@ -71,3 +64,17 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 }
 
+extension TimeLineViewController: EditTweetDelegate {
+    
+    func editTweetDelegate(cell: TimeLineTableViewCell, tweetDataModel: TweetDataModel) {
+        guard let indexPath = timeLine.indexPath(for: cell) else { return }
+        // 編集画面を取得
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let editTweetViewController = storyboard.instantiateViewController(withIdentifier: "NewTweetViewController") as? NewTweetViewController else { return }
+        editTweetViewController.editTweet = tweetDataModel
+        editTweetViewController.mode = .editTweet(index: indexPath.row)
+        editTweetViewController.delegate = self
+        // 画面を渡す
+        present(editTweetViewController, animated: true)
+    }
+}
