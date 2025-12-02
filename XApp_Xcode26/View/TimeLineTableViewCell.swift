@@ -8,27 +8,38 @@
 import UIKit
 
 class TimeLineTableViewCell: UITableViewCell {
-    @IBOutlet weak var userNameLable: UILabel!
-    @IBOutlet weak var idLable: UILabel!
-    @IBOutlet weak var tweetTextLable: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: UILabel!
+    
+    weak var delegate: EditTweetDelegate?
+    private var model: TweetDataModel?
+    
+    @IBAction func editButton(_ sender: Any) {
+        guard let model else { return }
+        delegate?.editTweetDelegate(cell: self, tweetDataModel: model)
+    }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
     func configure(tweetDataModel: TweetDataModel) {
-        self.userNameLable.text = tweetDataModel.userName
-        self.idLable.text = tweetDataModel.id
-        self.tweetTextLable.text = tweetDataModel.tweetText
-        self.tweetTextLable.numberOfLines = 0
+        self.model = tweetDataModel
+        self.userNameLabel.text = tweetDataModel.userName
+        self.idLabel.text = tweetDataModel.id
+        self.tweetTextLabel.text = tweetDataModel.tweetText
+        // 複数業表示可能
+        self.tweetTextLabel.numberOfLines = 0
     }
-
+    
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
 }
