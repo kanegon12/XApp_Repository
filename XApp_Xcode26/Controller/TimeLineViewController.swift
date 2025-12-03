@@ -31,7 +31,9 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         setUpTweet()
         loadTweetData()
         }
-    func setUpTweet() {
+    
+    // 初回だけ入るデモTweet
+     private func setUpTweet() {
         if realm.objects(TweetDataModel.self).isEmpty {
             try! realm.write {
                         let tweet1 = TweetDataModel()
@@ -88,7 +90,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.delegate = self
         return cell
     }
-    
+    // 投稿時間順に並び替えて画面更新(falseで上から新しい順)
     func loadTweetData() {
         let loadTweet = realm.objects(TweetDataModel.self)
             .sorted(byKeyPath: "createdAt", ascending: false)

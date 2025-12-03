@@ -207,18 +207,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWr-DH-APs">
+                                <rect key="frame" x="28" y="132" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="WQ7-XG-reH"/>
+                                    <constraint firstAttribute="width" constant="35" id="ca8-oL-PtC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A45-ti-hfK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ydk-Kh-UL1" firstAttribute="top" secondItem="8gZ-CM-KvL" secondAttribute="bottom" constant="10" id="8fO-3y-9zw"/>
                             <constraint firstItem="A45-ti-hfK" firstAttribute="trailing" secondItem="Ydk-Kh-UL1" secondAttribute="trailing" id="8uH-ZK-IDX"/>
+                            <constraint firstItem="RpO-AD-VJT" firstAttribute="top" secondItem="VWr-DH-APs" secondAttribute="top" id="BOT-sn-gmA"/>
                             <constraint firstItem="8gZ-CM-KvL" firstAttribute="top" secondItem="NQT-1u-bcE" secondAttribute="bottom" constant="10" id="Hh8-98-gXR"/>
                             <constraint firstItem="A45-ti-hfK" firstAttribute="bottom" secondItem="Ydk-Kh-UL1" secondAttribute="bottom" id="HxY-jB-H2F"/>
                             <constraint firstItem="A45-ti-hfK" firstAttribute="trailing" secondItem="RpO-AD-VJT" secondAttribute="trailing" constant="10" id="Nnj-qp-gdv"/>
                             <constraint firstItem="NQT-1u-bcE" firstAttribute="top" secondItem="A45-ti-hfK" secondAttribute="top" constant="9" id="Omv-nA-U04"/>
                             <constraint firstItem="RpO-AD-VJT" firstAttribute="top" secondItem="8gZ-CM-KvL" secondAttribute="top" id="SVH-4q-Nxj"/>
                             <constraint firstAttribute="trailing" secondItem="NQT-1u-bcE" secondAttribute="trailing" id="TLz-36-5AP"/>
+                            <constraint firstItem="8gZ-CM-KvL" firstAttribute="leading" secondItem="VWr-DH-APs" secondAttribute="trailing" constant="10" id="f2i-fM-hRc"/>
                             <constraint firstItem="NQT-1u-bcE" firstAttribute="leading" secondItem="DRI-ON-8u9" secondAttribute="leading" id="nqq-en-EqO"/>
                             <constraint firstItem="RpO-AD-VJT" firstAttribute="top" secondItem="NQT-1u-bcE" secondAttribute="bottom" constant="10" id="o4d-PF-2xv"/>
                             <constraint firstItem="RpO-AD-VJT" firstAttribute="leading" secondItem="8gZ-CM-KvL" secondAttribute="trailing" constant="10" id="rRJ-lC-Ewh"/>
@@ -227,6 +239,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="lJv-YP-O2t"/>
                     <connections>
+                        <outlet property="countLabel" destination="VWr-DH-APs" id="rFP-ED-CkM"/>
                         <outlet property="handleTextField" destination="RpO-AD-VJT" id="Z9F-CR-GQz"/>
                         <outlet property="tweetTextView" destination="Ydk-Kh-UL1" id="3qW-f2-BUz"/>
                         <outlet property="userNameTextField" destination="8gZ-CM-KvL" id="AW1-2T-E11"/>

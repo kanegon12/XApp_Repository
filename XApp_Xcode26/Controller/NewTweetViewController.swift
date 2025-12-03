@@ -9,7 +9,7 @@ import UIKit
 
 class NewTweetViewController: UIViewController {
    
-    // ポストボタン処理 whitespacesAndNewlinesで改行とスペース除去
+    // ポストボタン処理 trimming()で改行とスペース除去
     @IBAction func tweetBarButton(_ sender: Any) {
        let trimmingData = trimming()
         let tweet = TweetDataModel()
@@ -33,6 +33,7 @@ class NewTweetViewController: UIViewController {
     @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var handleTextField: UITextField!
+    @IBOutlet weak var countLabel: UILabel!
     
     var editTweet: TweetDataModel?
     weak var delegate: NewTweetDelegate?
@@ -47,7 +48,7 @@ class NewTweetViewController: UIViewController {
         }
         
         view.backgroundColor = .systemBackground
-        
+        tweetTextView.delegate = self
     }
     
     // スペースと改行除去
@@ -61,6 +62,35 @@ class NewTweetViewController: UIViewController {
     // 新規ツイートか編集かを判断
     enum Mode { case create, editTweet(index: Int)}
     var mode: Mode = .create
+    
+
 }
 
 
+extension NewTweetViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // 文字数上限
+        let maxCharacters: Int = 140
+        let characters = tweetTextView.text ?? ""
+
+        
+        guard let textViewRange = Range(range, in: textView.text) else {
+            return false
+        }
+        let updatedCharacters = characters.replacingCharacters(in: textViewRange, with: text)
+        let remainingCount = maxCharacters - updatedCharacters.count
+        // 残りの文字数が15以下になったらカウント
+        if remainingCount <= 15 {
+            countLabel.text = "\(remainingCount)"
+            countLabel.textColor = UIColor.systemRed
+        } else {
+                   countLabel.text = ""
+               }
+        // 上限を超える文字は入力不可
+        if updatedCharacters.count > maxCharacters && updatedCharacters.count > remainingCount{
+                return false
+            }
+        return true
+    }
+}

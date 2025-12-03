@@ -71,7 +71,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="idLabel" destination="2N7-sl-tf9" id="51x-Ip-3o3"/>
+                <outlet property="handleLabel" destination="2N7-sl-tf9" id="51x-Ip-3o3"/>
                 <outlet property="tweetTextLabel" destination="aJK-xe-Z7j" id="BVG-lx-qax"/>
                 <outlet property="userNameLabel" destination="Ecp-Gd-cQc" id="6Mx-8x-wbf"/>
             </connections>

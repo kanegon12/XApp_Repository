@@ -9,7 +9,7 @@ import UIKit
 
 class TimeLineTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
     
     weak var delegate: EditTweetDelegate?
@@ -29,7 +29,7 @@ class TimeLineTableViewCell: UITableViewCell {
     func configure(tweetDataModel: TweetDataModel) {
         self.model = tweetDataModel
         self.userNameLabel.text = tweetDataModel.userName
-        self.idLabel.text = tweetDataModel.handle
+        self.handleLabel.text = tweetDataModel.handle
         self.tweetTextLabel.text = tweetDataModel.tweetText
         // 複数業表示可能
         self.tweetTextLabel.numberOfLines = 0
