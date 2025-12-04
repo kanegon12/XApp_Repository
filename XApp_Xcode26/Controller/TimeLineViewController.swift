@@ -32,7 +32,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         loadTweetData()
         }
     
-    // 初回だけ入るデモTweet
+     // 初回だけ入るデモTweet
      private func setUpTweet() {
         if realm.objects(TweetDataModel.self).isEmpty {
             try! realm.write {
