@@ -227,7 +227,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="lJv-YP-O2t"/>
                     <connections>
-                        <outlet property="idTextField" destination="RpO-AD-VJT" id="Z9F-CR-GQz"/>
+                        <outlet property="handleTextField" destination="RpO-AD-VJT" id="Z9F-CR-GQz"/>
                         <outlet property="tweetTextView" destination="Ydk-Kh-UL1" id="3qW-f2-BUz"/>
                         <outlet property="userNameTextField" destination="8gZ-CM-KvL" id="AW1-2T-E11"/>
                     </connections>

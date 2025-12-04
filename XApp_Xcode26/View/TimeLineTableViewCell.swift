@@ -29,7 +29,7 @@ class TimeLineTableViewCell: UITableViewCell {
     func configure(tweetDataModel: TweetDataModel) {
         self.model = tweetDataModel
         self.userNameLabel.text = tweetDataModel.userName
-        self.idLabel.text = tweetDataModel.id
+        self.idLabel.text = tweetDataModel.handle
         self.tweetTextLabel.text = tweetDataModel.tweetText
         // 複数業表示可能
         self.tweetTextLabel.numberOfLines = 0

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -17,23 +18,64 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         viewController.delegate = self
         viewController.mode = .create
         present(viewController, animated: true)
-
     }
     
     private var tweet:[TweetDataModel] = []
-    
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLine.dataSource = self
         timeLine.delegate = self
         timeLine.register(UINib(nibName: "TimeLineTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeLineTableViewCell")
-        self.setUpTweet()
-        
+        setUpTweet()
+        loadTweetData()
         }
-    
     func setUpTweet() {
-        tweet = [TweetDataModel(userName: "SampleOne", id: "@sample1", tweetText: "Sample1です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleTwo", id: "@sample2", tweetText: "Sample2です！Tweetはしっかり表示されていますか？Sample2です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleThree", id: "@sample3", tweetText: "Sample1です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "Samplefour", id: "@sample4", tweetText: "Sample4です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleFive", id: "@sample5", tweetText: "Sample5です！Tweetはしっかり表示されていますか？Sample5です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleSix", id: "@sample6", tweetText: "Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleOne", id: "@sample1", tweetText: "Sample1です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleTwo", id: "@sample2", tweetText: "Sample2です！Tweetはしっかり表示されていますか？Sample2です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleThree", id: "@sample3", tweetText: "Sample1です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "Samplefour", id: "@sample4", tweetText: "Sample4です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleFive", id: "@sample5", tweetText: "Sample5です！Tweetはしっかり表示されていますか？Sample5です！Tweetはしっかり表示されていますか？"), TweetDataModel(userName: "SampleSix", id: "@sample6", tweetText: "Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？")]
+        if realm.objects(TweetDataModel.self).isEmpty {
+            try! realm.write {
+                        let tweet1 = TweetDataModel()
+                        tweet1.userName = "SampleOne"
+                        tweet1.handle = "sample1"
+                        tweet1.tweetText = "Sample1です！Tweetはしっかり表示されていますか？"
+                        realm.add(tweet1)
+                        let tweet2 = TweetDataModel()
+                        tweet2.userName = "SampleTwo"
+                        tweet2.handle = "sample2"
+                        tweet2.tweetText = "Sample2です！Tweetはしっかり表示されていますか？Sample2です！Tweetはしっかり表示されていますか？"
+                        realm.add(tweet2)
+                        let tweet3 = TweetDataModel()
+                        tweet3.userName = "SampleThree"
+                        tweet3.handle = "sample3"
+                        tweet3.tweetText = "Sample1です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？"
+                        realm.add(tweet3)
+                        let tweet4 = TweetDataModel()
+                        tweet4.userName = "Samplefour"
+                        tweet4.handle = "sample4"
+                        tweet4.tweetText = "Sample4です！Tweetはしっかり表示されていますか？"
+                        realm.add(tweet4)
+                        let tweet5 = TweetDataModel()
+                        tweet5.userName = "SampleFive"
+                        tweet5.handle = "sample5"
+                        tweet5.tweetText = "Sample5です！Tweetはしっかり表示されていますか？Sample5です！Tweetはしっかり表示されていますか？"
+                        realm.add(tweet5)
+                        let tweet6 = TweetDataModel()
+                        tweet6.userName = "SampleSix"
+                        tweet6.handle = "sample6"
+                        tweet6.tweetText = "Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？"
+                        realm.add(tweet6)
+                        let tweet7 = TweetDataModel()
+                        tweet7.userName = "SampleOne"
+                        tweet7.handle = "sample1"
+                        tweet7.tweetText = "Sample1です！Tweetはしっかり表示されていますか？"
+                        realm.add(tweet7)
+                        let tweet8 = TweetDataModel()
+                        tweet8.userName = "SampleTwo"
+                        tweet8.handle = "@sample2"
+                        tweet8.tweetText = "Sample2です！Tweetはしっかり表示されていますか？"
+                        realm.add(tweet8)
+                    }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,19 +89,33 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-
+    func loadTweetData() {
+        let loadTweet = realm.objects(TweetDataModel.self)
+            .sorted(byKeyPath: "createdAt", ascending: false)
+        tweet = Array(loadTweet)
+        timeLine.reloadData()
+    }
 }
 
 extension TimeLineViewController: NewTweetDelegate {
     func newTweetDelegate(viewController: NewTweetViewController, editedTweet: TweetDataModel, editedIndexPath: Int?) {
+        // editedIndexPathがnilなら新規、データが存在したら編集
         if let indexPath = editedIndexPath {
-        
-            tweet[indexPath] = editedTweet
+            // 編集
+            try! realm.write {
+                let updateTweet = tweet[indexPath]
+                updateTweet.userName = editedTweet.userName
+                updateTweet.handle = editedTweet.handle
+                updateTweet.tweetText = editedTweet.tweetText
+            }
+            // 書き換えた行だけリロードして更新
             timeLine.reloadRows(at: [IndexPath(row: indexPath, section: 0)], with: .automatic)
-         } else {
-            tweet.insert(editedTweet, at: 0)
-             timeLine.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-             timeLine.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        } else {
+            // 新規
+            try! realm.write {
+                realm.add(editedTweet)
+            }
+            loadTweetData()
         }
     }
 }

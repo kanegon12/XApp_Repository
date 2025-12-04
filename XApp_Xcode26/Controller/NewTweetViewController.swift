@@ -12,10 +12,10 @@ class NewTweetViewController: UIViewController {
     // ポストボタン処理 whitespacesAndNewlinesで改行とスペース除去
     @IBAction func tweetBarButton(_ sender: Any) {
        let trimmingData = trimming()
-        let tweet = TweetDataModel(
-            userName: trimmingData.userName,
-            id: trimmingData.id,
-            tweetText: trimmingData.text)
+        let tweet = TweetDataModel()
+        tweet.userName = trimmingData.userName
+        tweet.handle = trimmingData.handle
+        tweet.tweetText = trimmingData.text
         // 編集ならeditを新規ならnilを返す
         let indexPath: Int? = {
             if case let .editTweet(edit) = mode {
@@ -32,7 +32,7 @@ class NewTweetViewController: UIViewController {
     }
     @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var handleTextField: UITextField!
     
     var editTweet: TweetDataModel?
     weak var delegate: NewTweetDelegate?
@@ -42,7 +42,7 @@ class NewTweetViewController: UIViewController {
         super.viewDidLoad()
         if let tweet = editTweet {
             userNameTextField.text = tweet.userName
-            idTextField.text = tweet.id
+            handleTextField.text = tweet.handle
             tweetTextView.text = tweet.tweetText
         }
         
@@ -51,11 +51,11 @@ class NewTweetViewController: UIViewController {
     }
     
     // スペースと改行除去
-    func trimming() -> (userName: String, id: String, text: String) {
+    func trimming() -> (userName: String, handle: String, text: String) {
         let userName = userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let id = idTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let handle = handleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let text = tweetTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        return (userName, id , text)
+        return (userName, handle , text)
     }
     
     // 新規ツイートか編集かを判断
