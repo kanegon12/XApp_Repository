@@ -28,56 +28,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         timeLine.dataSource = self
         timeLine.delegate = self
         timeLine.register(UINib(nibName: "TimeLineTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeLineTableViewCell")
-        setUpTweet()
         loadTweetData()
-        }
-    
-    // 初回だけ入るデモTweet
-     private func setUpTweet() {
-        if realm.objects(TweetDataModel.self).isEmpty {
-            try! realm.write {
-                        let tweet1 = TweetDataModel()
-                        tweet1.userName = "SampleOne"
-                        tweet1.handle = "sample1"
-                        tweet1.tweetText = "Sample1です！Tweetはしっかり表示されていますか？"
-                        realm.add(tweet1)
-                        let tweet2 = TweetDataModel()
-                        tweet2.userName = "SampleTwo"
-                        tweet2.handle = "sample2"
-                        tweet2.tweetText = "Sample2です！Tweetはしっかり表示されていますか？Sample2です！Tweetはしっかり表示されていますか？"
-                        realm.add(tweet2)
-                        let tweet3 = TweetDataModel()
-                        tweet3.userName = "SampleThree"
-                        tweet3.handle = "sample3"
-                        tweet3.tweetText = "Sample1です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？Sample3です！Tweetはしっかり表示されていますか？"
-                        realm.add(tweet3)
-                        let tweet4 = TweetDataModel()
-                        tweet4.userName = "Samplefour"
-                        tweet4.handle = "sample4"
-                        tweet4.tweetText = "Sample4です！Tweetはしっかり表示されていますか？"
-                        realm.add(tweet4)
-                        let tweet5 = TweetDataModel()
-                        tweet5.userName = "SampleFive"
-                        tweet5.handle = "sample5"
-                        tweet5.tweetText = "Sample5です！Tweetはしっかり表示されていますか？Sample5です！Tweetはしっかり表示されていますか？"
-                        realm.add(tweet5)
-                        let tweet6 = TweetDataModel()
-                        tweet6.userName = "SampleSix"
-                        tweet6.handle = "sample6"
-                        tweet6.tweetText = "Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？Sample6です！Tweetはしっかり表示されていますか？"
-                        realm.add(tweet6)
-                        let tweet7 = TweetDataModel()
-                        tweet7.userName = "SampleOne"
-                        tweet7.handle = "sample1"
-                        tweet7.tweetText = "Sample1です！Tweetはしっかり表示されていますか？"
-                        realm.add(tweet7)
-                        let tweet8 = TweetDataModel()
-                        tweet8.userName = "SampleTwo"
-                        tweet8.handle = "@sample2"
-                        tweet8.tweetText = "Sample2です！Tweetはしっかり表示されていますか？"
-                        realm.add(tweet8)
-                    }
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
