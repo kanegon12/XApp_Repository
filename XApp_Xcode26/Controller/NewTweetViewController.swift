@@ -38,9 +38,9 @@ class NewTweetViewController: UIViewController {
     var editTweet: TweetDataModel?
     weak var delegate: NewTweetDelegate?
     // 文字数上限
-    let maxCharacters: Int = 140
+    let maxTextLimited: Int = 140
     // 色が変わる残文字数
-    let remainingCharacters: Int = 15
+    let remainingText: Int = 15
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,27 +67,44 @@ class NewTweetViewController: UIViewController {
     var mode: Mode = .create
 
     /// 文字数制限と残りカウント
-    func textLimited(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let characters = tweetTextView.text ?? ""
-        guard let textViewRange = Range(range, in: textView.text) else {
+    func shouldTextLimited(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // 現在のテキスト取得
+        let currentText = textView.text ?? ""
+        // 現在の文字数
+        let currentTextCount = currentText.count
+        // NSRangeをSwiftのRange型に変換
+        guard let textRange = Range(range, in: textView.text) else {
             return false
         }
         // 新しいテキストに置き換え
-        let updatedCharacters = characters.replacingCharacters(in: textViewRange, with: text)
+        let updatedText = currentText.replacingCharacters(in: textRange, with: text)
+        // 置き換え後の文字数
+        let newCount = updatedText.count
+        // 文字上限を下げた場合に今の文字上限以上のテキストを削除できるために
+        if newCount > currentTextCount {
+            // 文字を入力しようとした場合のみ上限チェック、上限を超えたら入力拒否
+            guard newCount <= maxTextLimited else {
+                return false
+            }
+        }
         // 残りの文字数
-        let remainingCount = maxCharacters - updatedCharacters.count
-        // 残りの文字数がremaining_characters以下になったらカウント
-        if remainingCount <= remainingCharacters {
+        let remainingCount = maxTextLimited - updatedText.count
+        // カウントを実装
+        textCountUp(remainingCount: remainingCount)
+        // 変更許可
+        return true
+    }
+    /// 残文字数カウント
+    private func textCountUp(remainingCount: Int) {
+        // 残りの文字数がremainingText以下になったらカウントを赤色で表示
+        if remainingCount <= remainingText {
             countLabel.text = "\(remainingCount)"
             countLabel.textColor = UIColor.systemRed
         } else {
+            // 残りの文字数が設定した残数以上で表示を消す
             countLabel.text = ""
         }
-        //        // 上限を超える文字は入力不可
-        if updatedCharacters.count > maxCharacters && updatedCharacters.count > remainingCount {
-            return false
-        }
-        return true
+        
     }
     
 }
@@ -95,7 +112,7 @@ class NewTweetViewController: UIViewController {
 extension NewTweetViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let limited = textLimited(textView, shouldChangeTextIn: range, replacementText: text)
+        let limited = shouldTextLimited(textView, shouldChangeTextIn: range, replacementText: text)
         
         return limited
     }
