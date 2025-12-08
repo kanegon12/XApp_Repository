@@ -31,10 +31,10 @@ final class NewTweetViewControllerTests: XCTestCase {
         viewController = storyboard.instantiateViewController(withIdentifier: "NewTweetViewController") as? NewTweetViewController
         viewController.loadViewIfNeeded()
         let textView = UITextView()
-        // 140文字
-        textView.text = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+        // 139文字
+        textView.text = "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
         let range = NSRange(location: 0, length: 0)
-        let result = viewController.shouldTextLimited(textView, shouldChangeTextIn: range, replacementText: "sssss")
-        //XCTAssertTrue(result)
+        let result = viewController.shouldTextLimited(textView, shouldChangeTextIn: range, replacementText: "s")
+        XCTAssertFalse(result)
     }
 }
