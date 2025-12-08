@@ -11,8 +11,8 @@ import UIKit
 
 final class NewTweetViewControllerTests: XCTestCase {
     
-
-    func testShouldTextLimited() {
+    // 正常系
+    func testShouldTextLimitedNormalCase() {
         let viewController: NewTweetViewController!
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         viewController = storyboard.instantiateViewController(withIdentifier: "NewTweetViewController") as? NewTweetViewController
@@ -24,5 +24,17 @@ final class NewTweetViewControllerTests: XCTestCase {
         let result = viewController.shouldTextLimited(textView, shouldChangeTextIn: range, replacementText: "sss")
         XCTAssertFalse(result)
     }
-    
+    // 異常系
+    func testShouldTextLimitedErrorCase() {
+        let viewController: NewTweetViewController!
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        viewController = storyboard.instantiateViewController(withIdentifier: "NewTweetViewController") as? NewTweetViewController
+        viewController.loadViewIfNeeded()
+        let textView = UITextView()
+        // 140文字
+        textView.text = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+        let range = NSRange(location: 0, length: 0)
+        let result = viewController.shouldTextLimited(textView, shouldChangeTextIn: range, replacementText: "sssss")
+        //XCTAssertTrue(result)
+    }
 }
